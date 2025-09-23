@@ -7,7 +7,7 @@ export function OrdersPage() {
             <title>YN Orders</title>
             <div className="header">
                 <div className="left-section">
-                    <a href="/index" className="header-link">
+                    <a href="/" className="header-link">
                         <img className="logo"
                             src="images/logo-white.png" />
                         <img className="mobile-logo"

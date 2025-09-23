@@ -1,4 +1,4 @@
-
+import { Routes, Route } from 'react-router';
 import './App.css'
 
 import HomePage from './pages/HomePage';
@@ -6,7 +6,13 @@ import HomePage from './pages/HomePage';
 function App() {
   return(
     <>
-      <HomePage/>
+      <Routes>
+        
+        <Route index element={ <HomePage/>}/>
+        <Route path="checkout" element={ <div>Test Checkout page</div>}/>
+
+      </Routes>
+     
     </>
   );
 }

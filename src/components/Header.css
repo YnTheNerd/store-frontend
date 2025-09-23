@@ -112,6 +112,12 @@
   padding-right: 13px;
 }
 
+/* Underline when the link to /orders is active */
+
+.header .orders-link.active{
+  text-decoration: underline;
+}
+
 .header .orders-text {
   display: block;
   font-size: 15px;

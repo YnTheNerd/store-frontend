@@ -7,6 +7,7 @@ import { CheckoutHeader } from './CheckoutHeader.jsx';
 function CheckoutPage() {
     return (
         <>
+            <link rel="icon" type="image/svg+xml" href="images/favicon/cart-favicon.png" />
             <title>YN checkout</title>
 
             <CheckoutHeader />

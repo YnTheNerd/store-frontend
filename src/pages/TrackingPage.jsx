@@ -8,6 +8,7 @@ export function TrackingPage() {
             <title>Tracking</title>
 
              <Header/>
+             <link rel="icon" type="image/svg+xml" href="/vite.svg" />
 
             <div className="tracking-page">
                 <div className="order-tracking">

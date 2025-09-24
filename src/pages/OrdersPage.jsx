@@ -7,6 +7,7 @@ export function OrdersPage() {
     return (
         <>
             <title>YN Orders</title>
+            <link rel="icon" type="image/svg+xml" href="images/favicon/orders-favicon.png" />
 
             <Header/>
 

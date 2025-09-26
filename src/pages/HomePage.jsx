@@ -1,17 +1,28 @@
 
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
-import { products } from '../../starting-code/ecommerce-project/data/products.js';
+//import { products } from '../../starting-code/ecommerce-project/data/products.js';
 import { ProductCard } from '../components/ProductCard.jsx';
 import './HomePage.css';
 
 
 function HomePage() {
-    axios
-        .get('http://localhost:3000/api/products')
-        .then((response)=>{
-            console.log(response.data);
-        })
+    const [products,setProducts] = useState([])
+
+    
+
+    useEffect(()=>{
+        axios
+            .get('http://localhost:3000/api/products')
+            .then((response) => {
+                setProducts(response.data);
+            })
+            
+    },[])//empty dependency array so code only runs once
+
+
+   
 
 
     return (

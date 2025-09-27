@@ -4,8 +4,25 @@ import mobileLogoWhite from '../assets/images/mobile-logo-white.png';
 
 
 import './Header.css'
+/**
+ * 
+ * @param {cart} param0 
+ * takes a cart array as prop.
+ * This array contains product objects
+ * @returns 
+ */
+export function Header({cart}){
+    let totalQuantity = 0;
 
-export function Header(){
+    // each cart item has a quantity attribute
+    cart.forEach(cartItem => {
+        totalQuantity += cartItem.quantity
+        
+    });
+
+
+
+    
     return(
         <>
              <div className="header">
@@ -35,7 +52,7 @@ export function Header(){
 
                     <NavLink className="cart-link header-link" to="/checkout">
                         <img className="cart-icon" src="images/icons/cart-icon.png" />
-                        <div className="cart-quantity">3</div>
+                        <div className="cart-quantity">{totalQuantity}</div>
                         <div className="cart-text">Cart</div>
                     </NavLink>
                 </div>

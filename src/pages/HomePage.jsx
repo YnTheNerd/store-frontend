@@ -9,6 +9,7 @@ import './HomePage.css';
 
 function HomePage() {
     const [products,setProducts] = useState([])
+    const [cart,setCart] = useState([])
 
     
 
@@ -17,10 +18,19 @@ function HomePage() {
             .get('http://localhost:3000/api/products')
             .then((response) => {
                 setProducts(response.data);
+                // console.log(response.data.slice(0,3));
             })
-            
+
     },[])//empty dependency array so code only runs once
 
+
+    axios
+       .get('http://localhost:3000/api/cart-items')
+       .then((response)=>{
+            setCart(response.data)
+         //console.log(response.data);
+
+       })
 
    
 
@@ -28,7 +38,8 @@ function HomePage() {
     return (
         <>
             <link rel="icon" type="image/svg+xml" href="images/favicon/home-favicon.png" />
-            <Header />
+            
+            <Header cart={cart} />
 
             <div className="home-page">
                 <div className="products-grid">

@@ -7,9 +7,9 @@ import { ProductCard } from '../components/ProductCard.jsx';
 import './HomePage.css';
 
 
-function HomePage() {
+function HomePage({cart}) {
     const [products,setProducts] = useState([])
-    const [cart,setCart] = useState([])
+    
 
     
 
@@ -24,14 +24,7 @@ function HomePage() {
     },[])//empty dependency array so code only runs once, loading products on Homepage ONCE too
 
 
-    axios
-       .get('/api/cart-items')
-       .then((response)=>{
-            setCart(response.data)
-         
-
-       })
-
+    
    
 
 

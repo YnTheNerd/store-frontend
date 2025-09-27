@@ -1,16 +1,31 @@
 import './CheckoutPage.css'
 import './CheckoutHeader.jsx'
 import { CheckoutHeader } from './CheckoutHeader.jsx';
+//import { useState } from 'react';
 
 
 
-function CheckoutPage() {
+function CheckoutPage({cart}) {
+     let totalQuantity = 0;
+
+    // each cart item has a quantity attribute
+    cart.forEach(cartItem => {
+        totalQuantity += cartItem.quantity
+        
+    });
+
+    // const [isChecked, setIsChecked] = useState(false);
+
+    //   const handleChange = (event) => {
+    //     setIsChecked(event.target.checked);
+    //   };
+
     return (
         <>
             <link rel="icon" type="image/svg+xml" href="images/favicon/cart-favicon.png" />
             <title>YN checkout</title>
 
-            <CheckoutHeader />
+            <CheckoutHeader totalQuantity={totalQuantity}  />
 
             <div className="checkout-page">
                 <div className="page-title">Review your order</div>
@@ -53,6 +68,7 @@ function CheckoutPage() {
                                     <div className="delivery-option">
                                         <input type="radio" checked
                                             className="delivery-option-input"
+                                             
                                             name="delivery-option-1" />
                                         <div>
                                             <div className="delivery-option-date">
@@ -65,6 +81,7 @@ function CheckoutPage() {
                                     </div>
                                     <div className="delivery-option">
                                         <input type="radio"
+                                             
                                             className="delivery-option-input"
                                             name="delivery-option-1" />
                                         <div>
@@ -78,6 +95,7 @@ function CheckoutPage() {
                                     </div>
                                     <div className="delivery-option">
                                         <input type="radio"
+                                             
                                             className="delivery-option-input"
                                             name="delivery-option-1" />
                                         <div>
@@ -129,6 +147,7 @@ function CheckoutPage() {
 
                                     <div className="delivery-option">
                                         <input type="radio" className="delivery-option-input"
+                                             
                                             name="delivery-option-2" />
                                         <div>
                                             <div className="delivery-option-date">
@@ -141,6 +160,7 @@ function CheckoutPage() {
                                     </div>
                                     <div className="delivery-option">
                                         <input type="radio" checked className="delivery-option-input"
+                                             
                                             name="delivery-option-2" />
                                         <div>
                                             <div className="delivery-option-date">
@@ -153,6 +173,7 @@ function CheckoutPage() {
                                     </div>
                                     <div className="delivery-option">
                                         <input type="radio" className="delivery-option-input"
+                                             
                                             name="delivery-option-2" />
                                         <div>
                                             <div className="delivery-option-date">
@@ -174,7 +195,7 @@ function CheckoutPage() {
                         </div>
 
                         <div className="payment-summary-row">
-                            <div>Items (3):</div>
+                            <div>Items ({totalQuantity}):</div>
                             <div className="payment-summary-money">$42.75</div>
                         </div>
 

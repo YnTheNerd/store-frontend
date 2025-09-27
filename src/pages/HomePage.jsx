@@ -15,20 +15,20 @@ function HomePage() {
 
     useEffect(()=>{
         axios
-            .get('http://localhost:3000/api/products')
+            .get('/api/products')
             .then((response) => {
                 setProducts(response.data);
                 // console.log(response.data.slice(0,3));
             })
 
-    },[])//empty dependency array so code only runs once
+    },[])//empty dependency array so code only runs once, loading products on Homepage ONCE too
 
 
     axios
-       .get('http://localhost:3000/api/cart-items')
+       .get('/api/cart-items')
        .then((response)=>{
             setCart(response.data)
-         //console.log(response.data);
+         
 
        })
 

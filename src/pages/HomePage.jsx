@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 //import { products } from '../../starting-code/ecommerce-project/data/products.js';
 import { ProductCard } from '../components/ProductCard.jsx';
+
 import './HomePage.css';
 
 

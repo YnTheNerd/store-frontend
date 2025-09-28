@@ -1,3 +1,4 @@
+import { formatMoney } from '../utils/money.js';
 import '../pages/HomePage.css';
 export function ProductCard({product}){
 
@@ -23,7 +24,8 @@ export function ProductCard({product}){
                         </div>
 
                         <div className="product-price">
-                           ${(product.priceCents /100.00).toFixed(2)}
+                           
+                           {formatMoney(product.priceCents)}
                         </div>
 
                         <div className="product-quantity-container">

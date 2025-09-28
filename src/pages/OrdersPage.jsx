@@ -25,7 +25,7 @@ export function OrdersPage() {
                                 </div>
                                 <div className="order-total">
                                     <div className="order-header-label">Total:</div>
-                                    <div>$35.06</div>
+                                    <div>${35.06}</div>
                                 </div>
                             </div>
 

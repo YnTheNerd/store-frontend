@@ -14,15 +14,17 @@ import './Header.css'
 export function Header({cart}){
     let totalQuantity = 0;
 
-    // each cart item has a quantity attribute
-    cart.forEach(cartItem => {
-        totalQuantity += cartItem.quantity
+    if (cart) {
         
-    });
+        // each cart item has a quantity attribute
+        cart.forEach(cartItem => {
+            totalQuantity += cartItem.quantity
 
-
-
+        });
+    }
     
+   
+
     return(
         <>
              <div className="header">
@@ -52,7 +54,7 @@ export function Header({cart}){
 
                     <NavLink className="cart-link header-link" to="/checkout">
                         <img className="cart-icon" src="images/icons/cart-icon.png" />
-                        <div className="cart-quantity">{totalQuantity}</div>
+                        <div className="cart-quantity">{totalQuantity===0 ? "YNaN" : totalQuantity }</div>
                         <div className="cart-text">Cart</div>
                     </NavLink>
                 </div>

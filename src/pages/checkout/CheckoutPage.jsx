@@ -18,7 +18,7 @@ function CheckoutPage({cart}) {
      * Recuperer le resumé de la commande
      */
     const fetchCheckoutData = async () => {
-        const response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+        let response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
         setDeliveryOptions(response.data)
     }
 
@@ -26,7 +26,7 @@ function CheckoutPage({cart}) {
      * Pour recuperer le resumé de ce qu'il faut payer avec taxe et bla bla
      */
     const fetchPaymentSummary = async () => {
-        const response = await axios.get('/api/payment-summary')
+        let response = await axios.get('/api/payment-summary')
         setPaymentSummary(response.data)
     }
 

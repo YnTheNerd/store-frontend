@@ -6,22 +6,23 @@ import './App.css'
 import HomePage from './pages/home/HomePage';
 import CheckoutPage from './pages/checkout/CheckoutPage';
 import { OrdersPage } from './pages/orders/OrdersPage';
-import { TrackingPage } from './pages/TrackingPage';
-import { ErrorPage } from './pages/ErrorPage';
+import { TrackingPage } from './pages/tracking/TrackingPage';
+import { ErrorPage } from './pages/error/ErrorPage';
 import axios from 'axios';
 
 function App() {
   const [cart, setCart] = useState([])
   
+   const fetchAppData = async() => {
+        const response = await axios.get('/api/cart')
+        setCart(response.data)
+    }
+
+    
     useEffect(() => {
 
-        const fetchAppData = async()=>{
-            const response = await axios.get('/api/cart-items?expand=products')
-            
-            setCart(response.data);
-        }
-        
         fetchAppData();
+        
     },[]);
 
 

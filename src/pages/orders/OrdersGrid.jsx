@@ -1,34 +1,11 @@
-import axios from 'axios';
 import dayjs from 'dayjs';
-import { formatMoney } from '../utils/money.js';
-import './OrdersPage.css'
+import { formatMoney } from '../../utils/money.js';
+import { Fragment } from 'react';
 import { Link } from 'react-router';
-import { Header } from '../components/Header';
-import React, { useEffect, useState } from 'react';
 
+export function OrdersGrid({orders}){
 
-export function OrdersPage({cart}) {
-    const [orders,setOrders] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get('/api/orders?expand=products')
-            .then(response => {
-            setOrders(response.data);
-        })
-    },[]);
-
-    return (
-        <>
-            <title>YN Orders</title>
-            <link rel="icon" type="image/svg+xml" href="images/favicon/orders-favicon.png" />
-
-            <Header cart = {cart}/>
-
-            <div className="orders-page">
-                <div className="page-title">Your Orders</div>
-
-                <div className="orders-grid">
+    return(<div className="orders-grid">
 
                     {orders.map((order) => {
 
@@ -56,9 +33,9 @@ export function OrdersPage({cart}) {
                                <div className="order-details-grid">
                                     {order.products.map((orderProduct)=>{
 
-                                        console.log(`${order.id}-${orderProduct.product.id}`)
+                                        
                                         return(
-                                         <React.Fragment key={orderProduct.product.id}>
+                                         <Fragment key={orderProduct.product.id}>
                                             {/* //<React.Fragment key={`${order.id}-${orderProduct.product.productId}`}> */}
 
                                                 <div className="product-image-container">
@@ -88,7 +65,7 @@ export function OrdersPage({cart}) {
                                                         </button>
                                                     </Link>
                                                 </div>
-                                            </React.Fragment>
+                                            </Fragment>
                                         );
 
                                     })}
@@ -104,9 +81,6 @@ export function OrdersPage({cart}) {
 
                     
                 </div>
-            </div>
-
-
-        </>
-    );
+                
+            )
 }

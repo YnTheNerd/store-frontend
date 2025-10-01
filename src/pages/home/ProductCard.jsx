@@ -1,5 +1,5 @@
-import { formatMoney } from '../utils/money.js';
-import '../pages/HomePage.css';
+import { formatMoney } from '../../utils/money.js';
+import './HomePage.css';
 export function ProductCard({product}){
 
 

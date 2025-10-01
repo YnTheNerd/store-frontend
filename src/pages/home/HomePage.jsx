@@ -1,9 +1,9 @@
 
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Header } from '../components/Header';
+import { Header } from '../../components/Header.jsx';
 //import { products } from '../../starting-code/ecommerce-project/data/products.js';
-import { ProductCard } from '../components/ProductCard.jsx';
+import { ProductCard } from './ProductCard.jsx';
 
 import './HomePage.css';
 

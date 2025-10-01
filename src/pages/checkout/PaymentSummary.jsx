@@ -45,8 +45,6 @@ export function PaymentSummary({paymentSummary}){
                                         </button>
         
                                     </>
-        
-        
                                 )}
                                 
                             </div>

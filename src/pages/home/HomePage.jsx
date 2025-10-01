@@ -11,23 +11,15 @@ import './HomePage.css';
 function HomePage({cart}) {
     const [products,setProducts] = useState([])
     
-
-    
+    const getProducts = async () => {
+        const response = await axios.get('/api/products');
+        setProducts(response.data);
+    }
 
     useEffect(()=>{
-        axios
-            .get('/api/products')
-            .then((response) => {
-                setProducts(response.data);
-                // console.log(response.data.slice(0,3));
-            })
+       getProducts()
 
     },[])//empty dependency array so code only runs once, loading products on Homepage ONCE too
-
-
-    
-   
-
 
     return (
         <>

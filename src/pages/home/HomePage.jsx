@@ -8,7 +8,7 @@ import { ProductCard } from './ProductCard.jsx';
 import './HomePage.css';
 
 
-function HomePage({cart}) {
+function HomePage({cart,loadCart}) {
     const [products,setProducts] = useState([])
     
     const getProducts = async () => {
@@ -32,7 +32,7 @@ function HomePage({cart}) {
 
                     {products.map((product) => {
                         return (
-                            <ProductCard key={product.id} product={product} />
+                            <ProductCard key={product.id} product={product} loadCart={loadCart} />
                         );
                     }
 

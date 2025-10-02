@@ -14,11 +14,12 @@ export function TrackingPage({cart}) {
         let response = await axios.get(`api/orders/${orderId}?expand=products`)
         setOrder(response.data)
     }
+    
 
     useEffect(()=>{
 
         getTrackingData()
-
+        
     },[orderId])
 
     if(!order){return null} // return nothing if no order found in early/first render
@@ -36,13 +37,10 @@ export function TrackingPage({cart}) {
     }
     )
     
-    console.log("Date: "+dayjs(product.estimatedDeliveryTimeMs).format('dddd, MMMM D ')); //OK
-   
-    console.log(`quantity: ${product.quantity}`) //OK
-    console.log(`Name:  ${product.product.name}`) 
-    console.log(`Image URL: ${product.product.image}`)
+    const totalDeliveryTimeMs = product.estimatedDeliveryTimeMs - order.orderTimeMs
+    const timePassedMs = dayjs().valueOf() - order.orderTimeMs
+    //const deliveryPercent = (timePassedMs / totalDeliveryTimeMs) * 100
     
-    console.log("////****///////*****/////")
 
     return (
         <>
@@ -72,7 +70,7 @@ export function TrackingPage({cart}) {
                         Quantity: {product.quantity}
                     </div>
 
-                    <img className="product-image" src={product.product.image} />
+                    <img className="product-image" src={product.product.image} loading="lazy" />
 
                     <div className="progress-labels-container">
                         <div className="progress-label">
@@ -87,7 +85,7 @@ export function TrackingPage({cart}) {
                     </div>
 
                     <div className="progress-bar-container">
-                        <div className="progress-bar"></div>
+                        <div className="progress-bar" style={{width: `${ (timePassedMs / totalDeliveryTimeMs) * 100}%`}}></div>
                     </div>
                 </div>
             </div>

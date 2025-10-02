@@ -6,6 +6,8 @@ export function ProductCard({product,loadCart}){
 
     const [quantity,setQuantity] = useState(1)
 
+    const [opacity, setOpacity] = useState(0)
+
     const addToCart = async() => {
         await axios.post('/api/cart-items',
             {
@@ -15,6 +17,12 @@ export function ProductCard({product,loadCart}){
         )
 
         await loadCart();
+
+        setOpacity(1)
+
+        setTimeout(() => {
+            setOpacity(0)
+        }, 2000)
     }
 
     const selectQuantity = (e) => {
@@ -63,21 +71,21 @@ export function ProductCard({product,loadCart}){
                         </div>
 
                         <div className="product-spacer"></div>
-
-                        <div className="added-to-cart">
-                            <img src="images/icons/checkmark.png" />
-                            Added
-                        </div>
-
-                        <button className="add-to-cart-button button-primary"
-                        
-                            onClick={addToCart}
-                            >
-                            Add to Cart
-                        </button>
-            
         
-            </div>
+                    <div className="added-to-cart" style={{opacity: opacity}}>
+                         <img src="images/icons/checkmark.png" /> 
+                        <p>Ajouté !</p>
+                    </div>
+
+                    <button className="add-to-cart-button button-primary"
+
+                        onClick={addToCart}
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+        
+            
                     
         </>
     )

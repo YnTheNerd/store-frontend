@@ -149,6 +149,11 @@
   margin-right: 6px;
 }
 
+/*Centrer le mot ajouté*/
+.added-to-cart {
+  justify-content: center;
+}
+
 .home-page .add-to-cart-button {
   width: 100%;
   padding: 8px;
